@@ -14,6 +14,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'ckeditor',
     'django_social_share',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
    
 ]
 
@@ -127,6 +131,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+ 
 MESSAGE_TAGS = {
     messages.ERROR:'danger'
     
@@ -136,5 +142,7 @@ MESSAGE_TAGS = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 
