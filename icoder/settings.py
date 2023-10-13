@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-714nh%e$&%y1js0$1ul#_20ie%&*2o%de+v6^mi&7k+xy!u=bi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'django_social_share',
 
-   
+
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-   
+
 ]
 
 ROOT_URLCONF = 'icoder.urls'
@@ -131,18 +131,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
- 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MESSAGE_TAGS = {
-    messages.ERROR:'danger'
-    
+    messages.ERROR: 'danger'
+
 }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-
